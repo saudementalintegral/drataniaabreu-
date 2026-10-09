@@ -801,6 +801,223 @@
                 page-break-inside: avoid;
             }
         }
+
+        /* ======================================================= */
+        /* ESTILOS DA SEÇÃO: SAÚDE FÍSICA E CONDIÇÕES CLÍNICAS */
+        /* ======================================================= */
+        .health-section-intro {
+            background: #FAF8F5;
+            border-left: 4px solid var(--gold-matte);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 13.5px;
+            color: #374151;
+            line-height: 1.5;
+        }
+        .accordion-group {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
+        }
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: #FFFFFF;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy-deep);
+            transition: background 0.2s;
+        }
+        .accordion-header:hover {
+            background: #F9FAFB;
+        }
+        .accordion-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .accordion-icon {
+            font-size: 16px;
+        }
+        .accordion-count-badge {
+            display: inline-block;
+            background: var(--navy-light);
+            color: var(--navy-deep);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-left: 6px;
+            transition: all 0.2s;
+        }
+        .accordion-count-badge.has-selected {
+            background: var(--navy-deep);
+            color: #FFFFFF;
+        }
+        .accordion-chevron {
+            font-size: 12px;
+            color: #6B7280;
+            transition: transform 0.25s ease;
+        }
+        .accordion-group.open .accordion-chevron {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            display: none;
+            padding: 16px 18px 20px 18px;
+            border-top: 1px solid var(--border-light);
+            background: #FAFAFA;
+        }
+        .accordion-group.open .accordion-content {
+            display: block;
+            animation: fadeIn 0.25s ease;
+        }
+
+        /* Card de detalhamento individual de sintoma */
+        .symptom-detail-card {
+            background: #FFFFFF;
+            border: 1.5px solid var(--gold-matte);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            animation: fadeIn 0.3s ease;
+            box-shadow: 0 4px 12px rgba(180, 155, 103, 0.08);
+        }
+        .symptom-detail-header {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .symptom-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .detail-field label {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #4B5563;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .detail-field select, .detail-field input {
+            font-size: 12.5px;
+            padding: 7px 10px;
+            border-radius: 6px;
+        }
+        .relations-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        .relation-pill {
+            font-size: 11.5px;
+            padding: 4px 10px;
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.15s;
+            user-select: none;
+        }
+        .relation-pill.selected {
+            background: var(--navy-deep);
+            color: #FFFFFF;
+            border-color: var(--navy-deep);
+        }
+
+        /* Priorização (Top 3) */
+        .priority-block {
+            background: #FDF9F0;
+            border: 1.5px solid var(--gold-matte);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+        .priority-block h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 6px;
+        }
+
+        /* Contexto Complementar */
+        .context-block {
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 24px;
+        }
+        .context-block h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--navy-deep);
+            margin-bottom: 12px;
+        }
+
+        /* Resumo Médico na Aba 5 */
+        .medical-summary-panel {
+            background: #F8FAFC;
+            border: 1.5px solid #CBD5E1;
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 24px;
+        }
+        .medical-summary-panel h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 19px;
+            color: var(--navy-deep);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .summary-badge-count {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 16px;
+            background: var(--navy-deep);
+            color: #FFFFFF;
+        }
+        .summary-system-row {
+            padding: 8px 0;
+            border-bottom: 1px dashed #E2E8F0;
+            font-size: 13px;
+        }
+        .summary-system-row:last-child {
+            border-bottom: none;
+        }
+        .summary-system-name {
+            font-weight: 700;
+            color: var(--navy-deep);
+            display: inline-block;
+            min-width: 170px;
+        }
+
     </style>
 </head>
 <body>
@@ -956,186 +1173,923 @@
                 <span class="badge-pill">🌿 Corpo & Fisiologia</span>
             </div>
 
-            <!-- 1. Top 15 Sintomas (TODOS DESMARCADOS INICIALMENTE) -->
+            
+            <!-- ==================================================== -->
+            <!-- SEÇÃO INTEGRADA: SAÚDE FÍSICA E CONDIÇÕES CLÍNICAS -->
+            <!-- ==================================================== -->
+            <div class="health-section-intro">
+                <strong style="color: var(--navy-deep); font-size: 14px;">🌿 Saúde Física: Sintomas e Condições Clínicas</strong><br>
+                Esta seção permite registrar queixas físicas e condições clínicas relevantes para compreendermos suas relações com o sono, alimentação, movimento, medicamentos, saúde emocional e contexto de vida. Os dados aqui informados não atribuem causas emocionais automáticas nem geram diagnósticos prévios.
+            </div>
+
             <div class="form-row">
-                <label class="question-label">O que você tem percebido recentemente? (Clique para selecionar suas prioridades):</label>
-                <div class="chips-grid" id="symptomsGrid">
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Preocupação constante ou mente que não desliga</span>
+                <label class="question-label" style="font-size: 15px;">1. Queixas Físicas (Últimos 30 dias):</label>
+                <div class="question-sub">
+                    Nos últimos 30 dias, quais destes sintomas você apresentou? Marque todos os que se aplicam, mesmo que já esteja em tratamento. Clique nos grupos para abrir ou recolher:
+                </div>
+
+                <div class="accordions-container" id="queixasAccordions">
+    
+                    <div class="accordion-group" id="acc_grp_dor">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_dor')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">⚡</span>
+                                <span>Dores e tensão</span>
+                                <span class="accordion-count-badge" id="badge_count_dor">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor de cabeça" id="chip_sint_dor_de_cabeca" onclick="toggleSintoma(this, 'dor_de_cabeca', 'Dor de cabeça', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor de cabeça</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor nas costas ou na região lombar" id="chip_sint_dor_nas_costas_ou_na_regiao_lombar" onclick="toggleSintoma(this, 'dor_nas_costas_ou_na_regiao_lombar', 'Dor nas costas ou na região lombar', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor nas costas ou na região lombar</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor no pescoço ou nos ombros" id="chip_sint_dor_no_pescoco_ou_nos_ombros" onclick="toggleSintoma(this, 'dor_no_pescoco_ou_nos_ombros', 'Dor no pescoço ou nos ombros', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor no pescoço ou nos ombros</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Tensão ou dor muscular" id="chip_sint_tensao_ou_dor_muscular" onclick="toggleSintoma(this, 'tensao_ou_dor_muscular', 'Tensão ou dor muscular', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Tensão ou dor muscular</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor nas articulações" id="chip_sint_dor_nas_articulacoes" onclick="toggleSintoma(this, 'dor_nas_articulacoes', 'Dor nas articulações', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor nas articulações</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor na mandíbula ou ao mastigar" id="chip_sint_dor_na_mandibula_ou_ao_mastigar" onclick="toggleSintoma(this, 'dor_na_mandibula_ou_ao_mastigar', 'Dor na mandíbula ou ao mastigar', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor na mandíbula ou ao mastigar</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor abdominal" id="chip_sint_dor_abdominal" onclick="toggleSintoma(this, 'dor_abdominal', 'Dor abdominal', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor abdominal</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor pélvica ou cólicas menstruais" id="chip_sint_dor_pelvica_ou_colicas_menstruais" onclick="toggleSintoma(this, 'dor_pelvica_ou_colicas_menstruais', 'Dor pélvica ou cólicas menstruais', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor pélvica ou cólicas menstruais</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="dor" data-sintoma="Dor em outras regiões" id="chip_sint_dor_em_outras_regioes" onclick="toggleSintoma(this, 'dor_em_outras_regioes', 'Dor em outras regiões', 'dor')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor em outras regiões</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Aperto no peito, falta de ar ou palpitações</span>
+        
+                    <div class="accordion-group" id="acc_grp_digestao">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_digestao')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🌱</span>
+                                <span>Digestão e intestino</span>
+                                <span class="accordion-count-badge" id="badge_count_digestao">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Enjoo ou náusea" id="chip_sint_enjoo_ou_nausea" onclick="toggleSintoma(this, 'enjoo_ou_nausea', 'Enjoo ou náusea', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Enjoo ou náusea</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Azia ou sensação de refluxo" id="chip_sint_azia_ou_sensacao_de_refluxo" onclick="toggleSintoma(this, 'azia_ou_sensacao_de_refluxo', 'Azia ou sensação de refluxo', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Azia ou sensação de refluxo</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Sensação de má digestão ou estômago cheio" id="chip_sint_sensacao_de_ma_digestao_ou_estomago_chei" onclick="toggleSintoma(this, 'sensacao_de_ma_digestao_ou_estomago_chei', 'Sensação de má digestão ou estômago cheio', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sensação de má digestão ou estômago cheio</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Inchaço abdominal ou gases" id="chip_sint_inchaco_abdominal_ou_gases" onclick="toggleSintoma(this, 'inchaco_abdominal_ou_gases', 'Inchaço abdominal ou gases', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Inchaço abdominal ou gases</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Constipação ou intestino preso" id="chip_sint_constipacao_ou_intestino_preso" onclick="toggleSintoma(this, 'constipacao_ou_intestino_preso', 'Constipação ou intestino preso', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Constipação ou intestino preso</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Diarreia ou fezes muito soltas" id="chip_sint_diarreia_ou_fezes_muito_soltas" onclick="toggleSintoma(this, 'diarreia_ou_fezes_muito_soltas', 'Diarreia ou fezes muito soltas', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Diarreia ou fezes muito soltas</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Alternância entre intestino preso e diarreia" id="chip_sint_alternância_entre_intestino_preso_e_diar" onclick="toggleSintoma(this, 'alternância_entre_intestino_preso_e_diar', 'Alternância entre intestino preso e diarreia', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Alternância entre intestino preso e diarreia</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Vômitos" id="chip_sint_vomitos" onclick="toggleSintoma(this, 'vomitos', 'Vômitos', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Vômitos</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="digestao" data-sintoma="Dificuldade para engolir" id="chip_sint_dificuldade_para_engolir" onclick="toggleSintoma(this, 'dificuldade_para_engolir', 'Dificuldade para engolir', 'digestao')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dificuldade para engolir</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Desânimo, tristeza ou vontade de ficar quieto(a)</span>
+        
+                    <div class="accordion-group" id="acc_grp_energia">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_energia')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🌙</span>
+                                <span>Energia, sono e sensações neurológicas</span>
+                                <span class="accordion-count-badge" id="badge_count_energia">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Cansaço ou falta de energia" id="chip_sint_cansaco_ou_falta_de_energia" onclick="toggleSintoma(this, 'cansaco_ou_falta_de_energia', 'Cansaço ou falta de energia', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Cansaço ou falta de energia</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Sensação de fraqueza" id="chip_sint_sensacao_de_fraqueza" onclick="toggleSintoma(this, 'sensacao_de_fraqueza', 'Sensação de fraqueza', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sensação de fraqueza</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Dificuldade para adormecer" id="chip_sint_dificuldade_para_adormecer" onclick="toggleSintoma(this, 'dificuldade_para_adormecer', 'Dificuldade para adormecer', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dificuldade para adormecer</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Despertares frequentes ou despertar muito cedo" id="chip_sint_despertares_frequentes_ou_despertar_muit" onclick="toggleSintoma(this, 'despertares_frequentes_ou_despertar_muit', 'Despertares frequentes ou despertar muito cedo', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Despertares frequentes ou despertar muito cedo</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Sono que não descansa" id="chip_sint_sono_que_nao_descansa" onclick="toggleSintoma(this, 'sono_que_nao_descansa', 'Sono que não descansa', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sono que não descansa</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Sonolência excessiva durante o dia" id="chip_sint_sonolencia_excessiva_durante_o_dia" onclick="toggleSintoma(this, 'sonolencia_excessiva_durante_o_dia', 'Sonolência excessiva durante o dia', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sonolência excessiva durante o dia</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Ronco ou pausas na respiração percebidas durante o sono" id="chip_sint_ronco_ou_pausas_na_respiracao_percebidas" onclick="toggleSintoma(this, 'ronco_ou_pausas_na_respiracao_percebidas', 'Ronco ou pausas na respiração percebidas durante o sono', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ronco ou pausas na respiração percebidas durante o sono</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Tontura ou sensação de que tudo gira" id="chip_sint_tontura_ou_sensacao_de_que_tudo_gira" onclick="toggleSintoma(this, 'tontura_ou_sensacao_de_que_tudo_gira', 'Tontura ou sensação de que tudo gira', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Tontura ou sensação de que tudo gira</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Desmaios" id="chip_sint_desmaios" onclick="toggleSintoma(this, 'desmaios', 'Desmaios', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Desmaios</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Zumbido no ouvido" id="chip_sint_zumbido_no_ouvido" onclick="toggleSintoma(this, 'zumbido_no_ouvido', 'Zumbido no ouvido', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Zumbido no ouvido</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Formigamento ou dormência" id="chip_sint_formigamento_ou_dormencia" onclick="toggleSintoma(this, 'formigamento_ou_dormencia', 'Formigamento ou dormência', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Formigamento ou dormência</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="energia" data-sintoma="Tremores" id="chip_sint_tremores" onclick="toggleSintoma(this, 'tremores', 'Tremores', 'energia')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Tremores</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Perda de interesse ou prazer nas coisas</span>
+        
+                    <div class="accordion-group" id="acc_grp_cardio">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cardio')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">❤️</span>
+                                <span>Coração e respiração</span>
+                                <span class="accordion-count-badge" id="badge_count_cardio">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Palpitações ou sensação de coração acelerado" id="chip_sint_palpitacoes_ou_sensacao_de_coracao_acele" onclick="toggleSintoma(this, 'palpitacoes_ou_sensacao_de_coracao_acele', 'Palpitações ou sensação de coração acelerado', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Palpitações ou sensação de coração acelerado</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Dor ou desconforto no peito" id="chip_sint_dor_ou_desconforto_no_peito" onclick="toggleSintoma(this, 'dor_ou_desconforto_no_peito', 'Dor ou desconforto no peito', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor ou desconforto no peito</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Falta de ar" id="chip_sint_falta_de_ar" onclick="toggleSintoma(this, 'falta_de_ar', 'Falta de ar', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Falta de ar</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Tosse persistente" id="chip_sint_tosse_persistente" onclick="toggleSintoma(this, 'tosse_persistente', 'Tosse persistente', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Tosse persistente</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Chiado no peito" id="chip_sint_chiado_no_peito" onclick="toggleSintoma(this, 'chiado_no_peito', 'Chiado no peito', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Chiado no peito</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="cardio" data-sintoma="Inchaço nas pernas ou nos pés" id="chip_sint_inchaco_nas_pernas_ou_nos_pes" onclick="toggleSintoma(this, 'inchaco_nas_pernas_ou_nos_pes', 'Inchaço nas pernas ou nos pés', 'cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Inchaço nas pernas ou nos pés</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Irritação fácil ou pavio curto no cotidiano</span>
+        
+                    <div class="accordion-group" id="acc_grp_metab">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_metab')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">⚖️</span>
+                                <span>Peso, apetite e regulação corporal</span>
+                                <span class="accordion-count-badge" id="badge_count_metab">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Aumento ou diminuição do apetite" id="chip_sint_aumento_ou_diminuicao_do_apetite" onclick="toggleSintoma(this, 'aumento_ou_diminuicao_do_apetite', 'Aumento ou diminuição do apetite', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Aumento ou diminuição do apetite</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Ganho de peso percebido" id="chip_sint_ganho_de_peso_percebido" onclick="toggleSintoma(this, 'ganho_de_peso_percebido', 'Ganho de peso percebido', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ganho de peso percebido</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Perda de peso sem intenção" id="chip_sint_perda_de_peso_sem_intencao" onclick="toggleSintoma(this, 'perda_de_peso_sem_intencao', 'Perda de peso sem intenção', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Perda de peso sem intenção</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Sede excessiva" id="chip_sint_sede_excessiva" onclick="toggleSintoma(this, 'sede_excessiva', 'Sede excessiva', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sede excessiva</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Urinar com muita frequência" id="chip_sint_urinar_com_muita_frequencia" onclick="toggleSintoma(this, 'urinar_com_muita_frequencia', 'Urinar com muita frequência', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Urinar com muita frequência</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Sensação excessiva de frio ou calor" id="chip_sint_sensacao_excessiva_de_frio_ou_calor" onclick="toggleSintoma(this, 'sensacao_excessiva_de_frio_ou_calor', 'Sensação excessiva de frio ou calor', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sensação excessiva de frio ou calor</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="metab" data-sintoma="Suor excessivo ou suores noturnos" id="chip_sint_suor_excessivo_ou_suores_noturnos" onclick="toggleSintoma(this, 'suor_excessivo_ou_suores_noturnos', 'Suor excessivo ou suores noturnos', 'metab')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Suor excessivo ou suores noturnos</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Mudanças no apetite (comer sem fome ou sem apetite)</span>
+        
+                    <div class="accordion-group" id="acc_grp_pele">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_pele')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">✨</span>
+                                <span>Pele, cabelos e alergias</span>
+                                <span class="accordion-count-badge" id="badge_count_pele">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="pele" data-sintoma="Queda de cabelo" id="chip_sint_queda_de_cabelo" onclick="toggleSintoma(this, 'queda_de_cabelo', 'Queda de cabelo', 'pele')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Queda de cabelo</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="pele" data-sintoma="Ressecamento da pele" id="chip_sint_ressecamento_da_pele" onclick="toggleSintoma(this, 'ressecamento_da_pele', 'Ressecamento da pele', 'pele')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ressecamento da pele</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="pele" data-sintoma="Coceira ou lesões na pele" id="chip_sint_coceira_ou_lesoes_na_pele" onclick="toggleSintoma(this, 'coceira_ou_lesoes_na_pele', 'Coceira ou lesões na pele', 'pele')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Coceira ou lesões na pele</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="pele" data-sintoma="Congestão nasal, espirros ou coriza frequentes" id="chip_sint_congestao_nasal_espirros_ou_coriza_frequ" onclick="toggleSintoma(this, 'congestao_nasal_espirros_ou_coriza_frequ', 'Congestão nasal, espirros ou coriza frequentes', 'pele')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Congestão nasal, espirros ou coriza frequentes</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Dificuldade para focar ou concluir tarefas</span>
+        
+                    <div class="accordion-group" id="acc_grp_urohorm">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_urohorm')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🌸</span>
+                                <span>Saúde urinária, hormonal e sexual</span>
+                                <span class="accordion-count-badge" id="badge_count_urohorm">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Ardor ou dor ao urinar" id="chip_sint_ardor_ou_dor_ao_urinar" onclick="toggleSintoma(this, 'ardor_ou_dor_ao_urinar', 'Ardor ou dor ao urinar', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ardor ou dor ao urinar</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Perda involuntária de urina" id="chip_sint_perda_involuntaria_de_urina" onclick="toggleSintoma(this, 'perda_involuntaria_de_urina', 'Perda involuntária de urina', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Perda involuntária de urina</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Menstruação irregular" id="chip_sint_menstruacao_irregular" onclick="toggleSintoma(this, 'menstruacao_irregular', 'Menstruação irregular', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Menstruação irregular</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Sangramento menstrual intenso" id="chip_sint_sangramento_menstrual_intenso" onclick="toggleSintoma(this, 'sangramento_menstrual_intenso', 'Sangramento menstrual intenso', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sangramento menstrual intenso</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Ondas de calor" id="chip_sint_ondas_de_calor" onclick="toggleSintoma(this, 'ondas_de_calor', 'Ondas de calor', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ondas de calor</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Ressecamento vaginal" id="chip_sint_ressecamento_vaginal" onclick="toggleSintoma(this, 'ressecamento_vaginal', 'Ressecamento vaginal', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Ressecamento vaginal</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Dor nas relações sexuais" id="chip_sint_dor_nas_relacoes_sexuais" onclick="toggleSintoma(this, 'dor_nas_relacoes_sexuais', 'Dor nas relações sexuais', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor nas relações sexuais</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Redução do desejo sexual" id="chip_sint_reducao_do_desejo_sexual" onclick="toggleSintoma(this, 'reducao_do_desejo_sexual', 'Redução do desejo sexual', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Redução do desejo sexual</span>
+                                </div>
+            
+                                <div class="chip-option chip-sintoma" data-grupo="urohorm" data-sintoma="Dificuldade de ereção (quando aplicável)" id="chip_sint_dificuldade_de_erecao_quando_aplicavel" onclick="toggleSintoma(this, 'dificuldade_de_erecao_quando_aplicavel', 'Dificuldade de ereção (quando aplicável)', 'urohorm')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dificuldade de ereção (quando aplicável)</span>
+                                </div>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Dificuldade para dormir ou despertares de madrugada</span>
+        
+                    <!-- Fechamento das Queixas Físicas -->
+                    <div class="chips-grid" style="margin-top: 14px;">
+                        <div class="chip-option" id="chip_sint_nenhum" onclick="toggleNenhumSintoma(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text"><strong>Não apresentei nenhum desses sintomas</strong> (Exclusivo)</span>
+                        </div>
+                        <div class="chip-option" id="chip_sint_outra_queixa" onclick="toggleOutraQueixa(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text">Outra queixa não listada acima</span>
+                        </div>
+                        <div class="chip-option" id="chip_sint_nao_tenho_certeza" onclick="toggleChip(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text">Não tenho certeza</span>
+                        </div>
                     </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Acordar cansado(a) / sono que não recupera a energia</span>
-                    </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Cansaço físico constante ou falta de disposição</span>
-                    </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Dores frequentes no corpo (cabeça, coluna, tensões)</span>
-                    </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Desconforto na barriga (estufamento, azia, cólicas)</span>
-                    </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Sensação de cabeça aérea, esquecimentos, lentidão</span>
-                    </div>
-                    <div class="chip-option" onclick="toggleChip(this)">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Altos e baixos frequentes no humor</span>
-                    </div>
-                    <!-- OUTRO SINAL IMPORTANTE NÃO LISTADO -->
-                    <div class="chip-option" id="chip_outro_sintoma" onclick="toggleChipWithInput(this, 'box_outro_sintoma', 'input_outro_sintoma')">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Outro sinal importante não listado</span>
+
+                    <!-- Caixa expansível para Outra Queixa -->
+                    <div class="outro-expandable-box" id="box_sint_outra_queixa" style="margin-top: 10px;">
+                        <label>Descreva qual outra queixa física você apresentou:</label>
+                        <input type="text" id="input_sint_outra_queixa" placeholder="Ex: Cãibras nas pernas à noite, sensibilidade excessiva nos dentes, etc...">
                     </div>
                 </div>
 
-                <!-- Caixa expansível para outro sinal -->
-                <div class="outro-expandable-box" id="box_outro_sintoma">
-                    <label>Especifique qual outro sinal ou sintoma você tem percebido:</label>
-                    <input type="text" id="input_outro_sintoma" placeholder="Ex: Tonturas, dormência nas mãos, zumbido no ouvido, etc...">
+                <!-- ÁREA DINÂMICA DE DETALHAMENTO DE SINTOMAS SELECIONADOS -->
+                <div id="containerDetalhamentoSintomas" style="margin-top: 20px;">
+                    <!-- Cards de detalhamento são injetados aqui via JS -->
+                </div>
+
+                <!-- BLOCO DE PRIORIZAÇÃO (ATÉ 3 QUEIXAS) -->
+                <div class="priority-block" id="blocoPrioridades" style="display: none;">
+                    <h4>🎯 Queixas Prioritárias</h4>
+                    <div class="question-sub" style="color: #78350F;">
+                        Quais destas queixas físicas mais incomodam você hoje? Você pode priorizar <strong>até 3 itens</strong>:
+                    </div>
+                    <div id="priorityChipsContainer" class="chips-grid" style="margin-top: 12px;">
+                        <!-- Injetado via JS com base nos sintomas marcados -->
+                    </div>
+                </div>
+            </div>
+    
+            <!-- 2. CONDIÇÕES CLÍNICAS CONHECIDAS (DIAGNÓSTICOS INFORMADOS) -->
+            <div class="form-row" style="margin-top: 32px;">
+                <label class="question-label" style="font-size: 15px;">2. Condições Clínicas Conhecidas:</label>
+                <div class="question-sub">
+                    Algum profissional de saúde já informou que você tem ou teve alguma destas condições? Marque todas as que se aplicam. (Registradas como diagnósticos informados, sujeitos à revisão da Dra. Tânia):
+                </div>
+
+                <div class="accordions-container" id="condicoesAccordions">
+    
+                    <div class="accordion-group" id="acc_grp_cond_cardio">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_cardio')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🫀</span>
+                                <span>Cardiovasculares e metabólicas</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_cardio">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Hipertensão arterial — pressão alta" id="chip_cond_hipertensao_arterial_pressao_alta" onclick="toggleCondicao(this, 'hipertensao_arterial_pressao_alta', 'Hipertensão arterial — pressão alta', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Hipertensão arterial — pressão alta</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Dislipidemia — colesterol e/ou triglicerídeos elevados" id="chip_cond_dislipidemia_colesterol_e_ou_triglicerid" onclick="toggleCondicao(this, 'dislipidemia_colesterol_e_ou_triglicerid', 'Dislipidemia — colesterol e/ou triglicerídeos elevados', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dislipidemia — colesterol e/ou triglicerídeos elevados</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Pré-diabetes ou alteração da glicose (intolerância à glicose)" id="chip_cond_pre-diabetes_ou_alteracao_da_glicose_int" onclick="toggleCondicao(this, 'pre-diabetes_ou_alteracao_da_glicose_int', 'Pré-diabetes ou alteração da glicose (intolerância à glicose)', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Pré-diabetes ou alteração da glicose (intolerância à glicose)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Diabetes (especificar tipo)" id="chip_cond_diabetes_especificar_tipo" onclick="toggleCondicao(this, 'diabetes_especificar_tipo', 'Diabetes (especificar tipo)', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Diabetes (especificar tipo)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Resistência à insulina (informada por profissional)" id="chip_cond_resistencia_a_insulina_informada_por_pro" onclick="toggleCondicao(this, 'resistencia_a_insulina_informada_por_pro', 'Resistência à insulina (informada por profissional)', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Resistência à insulina (informada por profissional)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Sobrepeso ou obesidade" id="chip_cond_sobrepeso_ou_obesidade" onclick="toggleCondicao(this, 'sobrepeso_ou_obesidade', 'Sobrepeso ou obesidade', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sobrepeso ou obesidade</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Gordura no fígado — esteatose hepática" id="chip_cond_gordura_no_figado_esteatose_hepatica" onclick="toggleCondicao(this, 'gordura_no_figado_esteatose_hepatica', 'Gordura no fígado — esteatose hepática', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Gordura no fígado — esteatose hepática</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Arritmia cardíaca" id="chip_cond_arritmia_cardiaca" onclick="toggleCondicao(this, 'arritmia_cardiaca', 'Arritmia cardíaca', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Arritmia cardíaca</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Outra doença do coração" id="chip_cond_outra_doenca_do_coracao" onclick="toggleCondicao(this, 'outra_doenca_do_coracao', 'Outra doença do coração', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra doença do coração</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_cardio" data-condicao="Histórico de infarto ou AVC" id="chip_cond_historico_de_infarto_ou_avc" onclick="toggleCondicao(this, 'historico_de_infarto_ou_avc', 'Histórico de infarto ou AVC', 'cond_cardio')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Histórico de infarto ou AVC</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_endo">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_endo')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🦋</span>
+                                <span>Hormonais e endócrinas</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_endo">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_endo" data-condicao="Hipotireoidismo" id="chip_cond_hipotireoidismo" onclick="toggleCondicao(this, 'hipotireoidismo', 'Hipotireoidismo', 'cond_endo')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Hipotireoidismo</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_endo" data-condicao="Hipertireoidismo" id="chip_cond_hipertireoidismo" onclick="toggleCondicao(this, 'hipertireoidismo', 'Hipertireoidismo', 'cond_endo')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Hipertireoidismo</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_endo" data-condicao="Outra doença da tireoide" id="chip_cond_outra_doenca_da_tireoide" onclick="toggleCondicao(this, 'outra_doenca_da_tireoide', 'Outra doença da tireoide', 'cond_endo')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra doença da tireoide</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_endo" data-condicao="Síndrome dos ovários policísticos (SOP)" id="chip_cond_sindrome_dos_ovarios_policisticos_sop" onclick="toggleCondicao(this, 'sindrome_dos_ovarios_policisticos_sop', 'Síndrome dos ovários policísticos (SOP)', 'cond_endo')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Síndrome dos ovários policísticos (SOP)</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_gastro">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_gastro')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🌿</span>
+                                <span>Digestivas</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_gastro">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Doença do refluxo gastroesofágico (DRGE)" id="chip_cond_doenca_do_refluxo_gastroesofagico_drge" onclick="toggleCondicao(this, 'doenca_do_refluxo_gastroesofagico_drge', 'Doença do refluxo gastroesofágico (DRGE)', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Doença do refluxo gastroesofágico (DRGE)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Gastrite ou úlcera" id="chip_cond_gastrite_ou_ulcera" onclick="toggleCondicao(this, 'gastrite_ou_ulcera', 'Gastrite ou úlcera', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Gastrite ou úlcera</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Síndrome do intestino irritável (SII)" id="chip_cond_sindrome_do_intestino_irritavel_sii" onclick="toggleCondicao(this, 'sindrome_do_intestino_irritavel_sii', 'Síndrome do intestino irritável (SII)', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Síndrome do intestino irritável (SII)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Constipação crônica" id="chip_cond_constipacao_cronica" onclick="toggleCondicao(this, 'constipacao_cronica', 'Constipação crônica', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Constipação crônica</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Doença celíaca" id="chip_cond_doenca_celiaca" onclick="toggleCondicao(this, 'doenca_celiaca', 'Doença celíaca', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Doença celíaca</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Intolerância à lactose" id="chip_cond_intolerância_a_lactose" onclick="toggleCondicao(this, 'intolerância_a_lactose', 'Intolerância à lactose', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Intolerância à lactose</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Doença inflamatória intestinal (Crohn ou retocolite)" id="chip_cond_doenca_inflamatoria_intestinal_crohn_ou_" onclick="toggleCondicao(this, 'doenca_inflamatoria_intestinal_crohn_ou_', 'Doença inflamatória intestinal (Crohn ou retocolite)', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Doença inflamatória intestinal (Crohn ou retocolite)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gastro" data-condicao="Outra doença do fígado ou digestivo" id="chip_cond_outra_doenca_do_figado_ou_digestivo" onclick="toggleCondicao(this, 'outra_doenca_do_figado_ou_digestivo', 'Outra doença do fígado ou digestivo', 'cond_gastro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra doença do fígado ou digestivo</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_resp">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_resp')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🫁</span>
+                                <span>Respiratórias e alérgicas</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_resp">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Asma" id="chip_cond_asma" onclick="toggleCondicao(this, 'asma', 'Asma', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Asma</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Rinite alérgica" id="chip_cond_rinite_alergica" onclick="toggleCondicao(this, 'rinite_alergica', 'Rinite alérgica', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Rinite alérgica</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Sinusite crônica ou recorrente" id="chip_cond_sinusite_cronica_ou_recorrente" onclick="toggleCondicao(this, 'sinusite_cronica_ou_recorrente', 'Sinusite crônica ou recorrente', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Sinusite crônica ou recorrente</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Apneia do sono" id="chip_cond_apneia_do_sono" onclick="toggleCondicao(this, 'apneia_do_sono', 'Apneia do sono', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Apneia do sono</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Outra doença pulmonar" id="chip_cond_outra_doenca_pulmonar" onclick="toggleCondicao(this, 'outra_doenca_pulmonar', 'Outra doença pulmonar', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra doença pulmonar</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Alergia alimentar diagnosticada" id="chip_cond_alergia_alimentar_diagnosticada" onclick="toggleCondicao(this, 'alergia_alimentar_diagnosticada', 'Alergia alimentar diagnosticada', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Alergia alimentar diagnosticada</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_resp" data-condicao="Alergia a medicamentos (detalhar substância e reação)" id="chip_cond_alergia_a_medicamentos_detalhar_substânc" onclick="toggleCondicao(this, 'alergia_a_medicamentos_detalhar_substânc', 'Alergia a medicamentos (detalhar substância e reação)', 'cond_resp')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Alergia a medicamentos (detalhar substância e reação)</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_neuro">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_neuro')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🧠</span>
+                                <span>Neurológicas, musculoesqueléticas e dor</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_neuro">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Enxaqueca" id="chip_cond_enxaqueca" onclick="toggleCondicao(this, 'enxaqueca', 'Enxaqueca', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Enxaqueca</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Outra dor de cabeça recorrente" id="chip_cond_outra_dor_de_cabeca_recorrente" onclick="toggleCondicao(this, 'outra_dor_de_cabeca_recorrente', 'Outra dor de cabeça recorrente', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra dor de cabeça recorrente</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Fibromialgia" id="chip_cond_fibromialgia" onclick="toggleCondicao(this, 'fibromialgia', 'Fibromialgia', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Fibromialgia</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Dor crônica" id="chip_cond_dor_cronica" onclick="toggleCondicao(this, 'dor_cronica', 'Dor crônica', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Dor crônica</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Artrose" id="chip_cond_artrose" onclick="toggleCondicao(this, 'artrose', 'Artrose', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Artrose</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Artrite inflamatória ou reumatológica" id="chip_cond_artrite_inflamatoria_ou_reumatologica" onclick="toggleCondicao(this, 'artrite_inflamatoria_ou_reumatologica', 'Artrite inflamatória ou reumatológica', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Artrite inflamatória ou reumatológica</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Osteopenia ou osteoporose" id="chip_cond_osteopenia_ou_osteoporose" onclick="toggleCondicao(this, 'osteopenia_ou_osteoporose', 'Osteopenia ou osteoporose', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Osteopenia ou osteoporose</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Problema de coluna diagnosticado" id="chip_cond_problema_de_coluna_diagnosticado" onclick="toggleCondicao(this, 'problema_de_coluna_diagnosticado', 'Problema de coluna diagnosticado', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Problema de coluna diagnosticado</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Bruxismo ou DTM" id="chip_cond_bruxismo_ou_dtm" onclick="toggleCondicao(this, 'bruxismo_ou_dtm', 'Bruxismo ou DTM', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Bruxismo ou DTM</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Epilepsia" id="chip_cond_epilepsia" onclick="toggleCondicao(this, 'epilepsia', 'Epilepsia', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Epilepsia</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_neuro" data-condicao="Outra doença neurológica" id="chip_cond_outra_doenca_neurologica" onclick="toggleCondicao(this, 'outra_doenca_neurologica', 'Outra doença neurológica', 'cond_neuro')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra doença neurológica</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_hemato">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_hemato')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🩸</span>
+                                <span>Hematológicas e nutricionais</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_hemato">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_hemato" data-condicao="Anemia" id="chip_cond_anemia" onclick="toggleCondicao(this, 'anemia', 'Anemia', 'cond_hemato')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Anemia</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_hemato" data-condicao="Deficiência de ferro" id="chip_cond_deficiencia_de_ferro" onclick="toggleCondicao(this, 'deficiencia_de_ferro', 'Deficiência de ferro', 'cond_hemato')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Deficiência de ferro</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_hemato" data-condicao="Deficiência de vitamina B12" id="chip_cond_deficiencia_de_vitamina_b12" onclick="toggleCondicao(this, 'deficiencia_de_vitamina_b12', 'Deficiência de vitamina B12', 'cond_hemato')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Deficiência de vitamina B12</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_hemato" data-condicao="Deficiência de vitamina D" id="chip_cond_deficiencia_de_vitamina_d" onclick="toggleCondicao(this, 'deficiencia_de_vitamina_d', 'Deficiência de vitamina D', 'cond_hemato')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Deficiência de vitamina D</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_hemato" data-condicao="Outra deficiência nutricional" id="chip_cond_outra_deficiencia_nutricional" onclick="toggleCondicao(this, 'outra_deficiencia_nutricional', 'Outra deficiência nutricional', 'cond_hemato')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra deficiência nutricional</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="accordion-group" id="acc_grp_cond_gineco">
+                        <button type="button" class="accordion-header" onclick="toggleAccordion('acc_grp_cond_gineco')">
+                            <div class="accordion-header-left">
+                                <span class="accordion-icon">🩺</span>
+                                <span>Ginecológicas, urinárias e outras</span>
+                                <span class="accordion-count-badge" id="badge_count_cond_gineco">0</span>
+                            </div>
+                            <span class="accordion-chevron">▼</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="chips-grid">
+        
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Endometriose" id="chip_cond_endometriose" onclick="toggleCondicao(this, 'endometriose', 'Endometriose', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Endometriose</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Miomas uterinos" id="chip_cond_miomas_uterinos" onclick="toggleCondicao(this, 'miomas_uterinos', 'Miomas uterinos', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Miomas uterinos</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Infecção urinária recorrente" id="chip_cond_infeccao_urinaria_recorrente" onclick="toggleCondicao(this, 'infeccao_urinaria_recorrente', 'Infecção urinária recorrente', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Infecção urinária recorrente</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Cálculos renais (pedras nos rins)" id="chip_cond_calculos_renais_pedras_nos_rins" onclick="toggleCondicao(this, 'calculos_renais_pedras_nos_rins', 'Cálculos renais (pedras nos rins)', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Cálculos renais (pedras nos rins)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Doença renal crônica" id="chip_cond_doenca_renal_cronica" onclick="toggleCondicao(this, 'doenca_renal_cronica', 'Doença renal crônica', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Doença renal crônica</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Doença autoimune (especificar)" id="chip_cond_doenca_autoimune_especificar" onclick="toggleCondicao(this, 'doenca_autoimune_especificar', 'Doença autoimune (especificar)', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Doença autoimune (especificar)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Câncer atual ou prévio (especificar)" id="chip_cond_câncer_atual_ou_previo_especificar" onclick="toggleCondicao(this, 'câncer_atual_ou_previo_especificar', 'Câncer atual ou prévio (especificar)', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Câncer atual ou prévio (especificar)</span>
+                                </div>
+            
+                                <div class="chip-option chip-condicao" data-grupo="cond_gineco" data-condicao="Outra condição clínica" id="chip_cond_outra_condicao_clinica" onclick="toggleCondicao(this, 'outra_condicao_clinica', 'Outra condição clínica', 'cond_gineco')">
+                                    <div class="chip-checkbox"></div>
+                                    <span class="chip-text">Outra condição clínica</span>
+                                </div>
+            
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Fechamento das Condições Clínicas -->
+                    <div class="chips-grid" style="margin-top: 14px;">
+                        <div class="chip-option" id="chip_cond_nenhum" onclick="toggleNenhumaCondicao(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text"><strong>Não conheço nenhum diagnóstico clínico</strong></span>
+                        </div>
+                        <div class="chip-option" id="chip_cond_investigacao" onclick="toggleCondicaoInvestigacao(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text">Tenho uma condição em investigação</span>
+                        </div>
+                        <div class="chip-option" id="chip_cond_nao_certeza" onclick="toggleChip(this)">
+                            <div class="chip-checkbox"></div>
+                            <span class="chip-text">Não tenho certeza</span>
+                        </div>
+                    </div>
+
+                    <!-- Caixa expansível para condição em investigação -->
+                    <div class="outro-expandable-box" id="box_cond_investigacao" style="margin-top: 10px;">
+                        <label>Descreva qual condição ou sintoma está sendo investigado por profissionais:</label>
+                        <input type="text" id="input_cond_investigacao" placeholder="Ex: Investigando queixa de fadiga com reumatologista, realizando exames de tireoide...">
+                    </div>
+                </div>
+
+                <!-- ÁREA DINÂMICA DE DETALHAMENTO DE CONDIÇÕES CLÍNICAS SELECIONADAS -->
+                <div id="containerDetalhamentoCondicoes" style="margin-top: 20px;">
+                    <!-- Detalhamento de cada condição selecionada -->
                 </div>
             </div>
 
-            <!-- Detalhe do sintoma -->
-            <div class="form-row grid-2" style="background: var(--bg-principal); padding: 18px; border-radius: 12px;">
-                <div>
-                    <label class="question-label" style="font-size: 13.5px;">Sintoma Prioritário: Início e Padrão</label>
-                    <input type="text" placeholder="Desde quando? (ex: 3 meses). Ocorre contínuo ou em crises?">
+            <!-- 3. CONTEXTO FÍSICO COMPLEMENTAR -->
+            <div class="context-block">
+                <h4>🩺 Contexto Físico Complementar</h4>
+                <div class="question-sub">
+                    Informações complementares de segurança fisiológica e farmacológica (separadas da lista de diagnósticos):
                 </div>
-                <div>
-                    <label class="question-label" style="font-size: 13.5px;">Gatilhos, Alívio e Impacto (0 a 4)</label>
-                    <input type="text" placeholder="O que costuma piorar? O que alivia? Impacto: [  ]">
+
+                <div class="form-row grid-3" style="margin-top: 16px;">
+                    <div>
+                        <label class="question-label" style="font-size: 13px;">Gestação / Possibilidade</label>
+                        <select id="ctx_gestacao">
+                            <option value="">Selecione...</option>
+                            <option value="Não se aplica">Não se aplica</option>
+                            <option value="Não gestante / Sem possibilidade">Não gestante / Sem possibilidade</option>
+                            <option value="Gestante atual">Gestante atual</option>
+                            <option value="Possibilidade de gestação no momento">Possibilidade de gestação no momento</option>
+                            <option value="Tentando engravidar">Tentando engravidar</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="question-label" style="font-size: 13px;">Amamentação</label>
+                        <select id="ctx_amamentacao">
+                            <option value="">Selecione...</option>
+                            <option value="Não se aplica">Não se aplica</option>
+                            <option value="Não está amamentando">Não está amamentando</option>
+                            <option value="Amamentando atualmente">Amamentando atualmente</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="question-label" style="font-size: 13px;">Climatério / Menopausa</label>
+                        <select id="ctx_menopausa">
+                            <option value="">Selecione...</option>
+                            <option value="Não se aplica">Não se aplica</option>
+                            <option value="Ciclos regulares (antes da transição)">Ciclos regulares (antes da transição)</option>
+                            <option value="Em transição menopausal (Perimenopausa)">Em transição menopausal (Perimenopausa)</option>
+                            <option value="Pós-menopausa estabelecida">Pós-menopausa estabelecida</option>
+                            <option value="Terapia de Reposição Hormonal em uso">Terapia de Reposição Hormonal em uso</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row grid-2" style="margin-top: 16px;">
+                    <div>
+                        <label class="question-label" style="font-size: 13px;">Cirurgias Prévias e Internações Relevantes</label>
+                        <textarea rows="2" id="ctx_cirurgias" placeholder="Ex: Apendicectomia (2018), Colecistectomia (2021), internação por pneumonia em 2023... ou 'Nenhuma'"></textarea>
+                    </div>
+                    <div>
+                        <label class="question-label" style="font-size: 13px;">Alergias e Reações a Medicamentos</label>
+                        <textarea rows="2" id="ctx_alergias_medicamentos" placeholder="Ex: Alergia a Dipirona (urticária), intolerância a anti-inflamatórios... ou 'Nenhuma conhecida'"></textarea>
+                    </div>
                 </div>
             </div>
-
-            <!-- 2. Diagnósticos prévios informados (TODOS DESMARCADOS INICIALMENTE) -->
-            <div class="form-row" style="margin-top: 24px;">
-                <label class="question-label">Algum médico ou especialista já mencionou algum diagnóstico com você anteriormente?</label>
-                <div class="question-sub">Marque apenas o que já lhe foi explicado em consultas prévias:</div>
-                <div class="chips-grid">
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Episódio de depressão ou tristeza profunda</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Ansiedade generalizada ou constante</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Crises de pânico / sensação súbita de sufoco</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Receio intenso de lugares cheios, fechados ou sair</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Oscilações marcantes de fases de humor</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Dificuldade de atenção ou hiperatividade (TDAH)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Pensamentos repetitivos ou rituais de alívio</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Marcas persistentes de episódios traumáticos</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Desafios com a alimentação (compulsão)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Nunca recebi nenhum diagnóstico formal</span></div>
-                    <!-- OUTRO DIAGNÓSTICO -->
-                    <div class="chip-option" id="chip_outro_diagnostico" onclick="toggleChipWithInput(this, 'box_outro_diagnostico', 'input_outro_diagnostico')">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Outro diagnóstico mencionado</span>
-                    </div>
-                </div>
-
-                <!-- Caixa expansível para outro diagnóstico -->
-                <div class="outro-expandable-box" id="box_outro_diagnostico">
-                    <label>Qual outro diagnóstico ou hipótese já foi mencionado por um profissional?</label>
-                    <input type="text" id="input_outro_diagnostico" placeholder="Ex: Síndrome de Burnout, Ciclotimia, Fobia social específica, etc...">
-                </div>
-            </div>
-
-            <!-- 3. Comorbidades Físicas (TODAS DESMARCADAS INICIALMENTE) -->
-            <div class="form-row" style="margin-top: 24px;">
-                <label class="question-label">Condições de Saúde Física Conhecidas:</label>
-                <div class="chips-grid">
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Pressão alta (Hipertensão)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Diabetes ou Pré-diabetes</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Alteração na tireoide (Hipotireoidismo)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Colesterol ou Triglicerídeos altos</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Sobrepeso ou Obesidade</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Gordura no fígado (Esteatose hepática)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Enxaqueca / Cefaleias frequentes</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Alterações intestinais (Colite / SII)</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Fibromialgia ou dores musculares</span></div>
-                    <div class="chip-option" onclick="toggleChip(this)"><div class="chip-checkbox"></div><span class="chip-text">Nenhuma alteração física conhecida</span></div>
-                    <!-- OUTRA CONDICAO FISICA -->
-                    <div class="chip-option" id="chip_outra_condicao" onclick="toggleChipWithInput(this, 'box_outra_condicao', 'input_outra_condicao')">
-                        <div class="chip-checkbox"></div>
-                        <span class="chip-text">Outra condição física não listada</span>
-                    </div>
-                </div>
-
-                <!-- Caixa expansível para outra condição física -->
-                <div class="outro-expandable-box" id="box_outra_condicao">
-                    <label>Especifique qual outra condição de saúde física você possui ou acompanha:</label>
-                    <input type="text" id="input_outra_condicao" placeholder="Ex: Endometriose, Refluxo gastroesofágico, Psoríase, Asma, etc...">
-                </div>
-            </div>
-
-            <!-- Escala de Dor (DESMARCADA INICIALMENTE) -->
-            <div class="form-row" style="margin-top: 24px;">
-                <label class="question-label">Experiência com a Dor Física (Se houver):</label>
-                <div class="question-sub">Selecione a expressão que mais se aproxima de como você sente a dor:</div>
-                
-                <div class="pain-faces-row">
-                    <div class="pain-face-card" onclick="selectPainFace(this, 'Nível 0')">
-                        <div class="p-emoji">😊</div>
-                        <div class="p-score">Nível 0</div>
-                        <div class="p-desc">Sem dor, conforto pleno e paz.</div>
-                    </div>
-                    <div class="pain-face-card" onclick="selectPainFace(this, 'Nível 2-3')">
-                        <div class="p-emoji">😐</div>
-                        <div class="p-score">Nível 2-3</div>
-                        <div class="p-desc">Incômodo leve, esquecido nas atividades.</div>
-                    </div>
-                    <div class="pain-face-card" onclick="selectPainFace(this, 'Nível 4-5')">
-                        <div class="p-emoji">🙁</div>
-                        <div class="p-score">Nível 4-5</div>
-                        <div class="p-desc">Dor moderada, desgastante mas tolerável.</div>
-                    </div>
-                    <div class="pain-face-card" onclick="selectPainFace(this, 'Nível 6-7')">
-                        <div class="p-emoji">😣</div>
-                        <div class="p-score">Nível 6-7</div>
-                        <div class="p-desc">Dor forte, afeta trabalho, sono e humor.</div>
-                    </div>
-                    <div class="pain-face-card" onclick="selectPainFace(this, 'Nível 8-10')">
-                        <div class="p-emoji">😭</div>
-                        <div class="p-score">Nível 8-10</div>
-                        <div class="p-desc">Severa ou paralisante.</div>
-                    </div>
-                </div>
-                <div class="grid-2">
-                    <input type="text" placeholder="Onde dói principalmente? (ex: lombar, cabeça)">
-                    <input type="text" placeholder="Como é a sensação? (pontada, aperto, queimação, choque...)">
-                </div>
-            </div>
+    
 
             <!-- Medicamentos em linha (COM PLACEHOLDERS EM COR CLARA, SEM TEXTO FIXO PRÉVIO) -->
             <div class="form-row" style="margin-top: 24px;">
@@ -1475,6 +2429,10 @@
                 <strong>Segurança & Sigilo Clínico:</strong> Este espaço reúne hipóteses diagnósticas (CID-11), exame físico e os 18 Esquemas Desadaptativos de Young. Estas notas são de uso exclusivo da profissional e são discriminadas no relatório final confidencial.
             </div>
 
+            
+            <!-- PAINEL DINÂMICO DE RESUMO DE SAÚDE FÍSICA E CONDIÇÕES INFORMADAS -->
+            <div id="resumoSaudeFisicaDraTania" style="margin-bottom: 24px;"></div>
+
             <div class="form-row grid-2">
                 <div>
                     <label class="question-label">Sinais Vitais e Exame Físico</label>
@@ -1706,6 +2664,14 @@
         // 4. Marca todas as abas como ativas e ativa classe de impressão
         document.body.classList.add('is-printing-report');
 
+        // Garante que o resumo médico esteja 100% atualizado para impressão
+        if (typeof atualizarResumoClinicoDraTania === 'function') {
+            atualizarResumoClinicoDraTania();
+        }
+
+        // Abre os accordions durante a impressão para que saiam visíveis no PDF
+        document.querySelectorAll('.accordion-group').forEach(grp => grp.classList.add('open'));
+
         // Aguarda renderização no DOM e chama a caixa de impressão do navegador
         setTimeout(() => {
             window.print();
@@ -1721,6 +2687,601 @@
     // ========================================================
     // MOTOR DE COMPARTILHAMENTO E INTEGRAÇÃO DE PRONTUÁRIO
     // ========================================================
+
+
+    // ========================================================
+    // MOTOR DA SEÇÃO: SAÚDE FÍSICA E CONDIÇÕES CLÍNICAS
+    // ========================================================
+
+    // Estado reativo das queixas e condições
+    const estadoSaudeFisica = {
+        sintomas: {},    // { id: { nome, grupo, tempo, freq, intensidade, interferencia, avaliado, explicacao, alivio, relacoes: [], obs, outroLocal } }
+        prioridades: [], // [ id1, id2, id3 ]
+        condicoes: {}    // { id: { nome, grupo, situacao, ano, especialista, tratamentos, exames, obs } }
+    };
+
+    // Alternar abertura de accordion
+    function toggleAccordion(groupId) {
+        const grp = document.getElementById(groupId);
+        if (grp) {
+            grp.classList.toggle('open');
+        }
+    }
+
+    // Atualiza contadores dos crachás de cada grupo
+    function atualizarContadores() {
+        // Queixas
+        const gruposQ = ['dor', 'digestao', 'energia', 'cardio', 'metab', 'pele', 'urohorm'];
+        gruposQ.forEach(gid => {
+            const count = Object.values(estadoSaudeFisica.sintomas).filter(s => s.grupo === gid).length;
+            const badge = document.getElementById('badge_count_' + gid);
+            if (badge) {
+                badge.innerText = count;
+                if (count > 0) badge.classList.add('has-selected');
+                else badge.classList.remove('has-selected');
+            }
+        });
+
+        // Condições
+        const gruposC = ['cond_cardio', 'cond_endo', 'cond_gastro', 'cond_resp', 'cond_neuro', 'cond_hemato', 'cond_gineco'];
+        gruposC.forEach(gid => {
+            const count = Object.values(estadoSaudeFisica.condicoes).filter(c => c.grupo === gid).length;
+            const badge = document.getElementById('badge_count_' + gid);
+            if (badge) {
+                badge.innerText = count;
+                if (count > 0) badge.classList.add('has-selected');
+                else badge.classList.remove('has-selected');
+            }
+        });
+
+        atualizarBlocoPrioridades();
+        atualizarResumoClinicoDraTania();
+        salvarNoLocalStorage();
+    }
+
+    // Toggle de Sintoma
+    function toggleSintoma(el, id, nome, grupo) {
+        const chipNenhum = document.getElementById('chip_sint_nenhum');
+        if (chipNenhum && chipNenhum.classList.contains('selected')) {
+            chipNenhum.classList.remove('selected');
+        }
+
+        if (estadoSaudeFisica.sintomas[id]) {
+            // Desmarcar
+            delete estadoSaudeFisica.sintomas[id];
+            el.classList.remove('selected');
+            // Remove da lista de prioridades se estava
+            estadoSaudeFisica.prioridades = estadoSaudeFisica.prioridades.filter(p => p !== id);
+            // Remove card de detalhamento
+            const card = document.getElementById('card_detalhe_' + id);
+            if (card) card.remove();
+        } else {
+            // Marcar
+            estadoSaudeFisica.sintomas[id] = {
+                nome: nome,
+                grupo: grupo,
+                tempo: "1–3 meses",
+                freq: "vários dias por semana",
+                intensidade: 5,
+                interferencia: "moderadamente",
+                avaliado: "não",
+                explicacao: "",
+                alivio: "",
+                relacoes: [],
+                obs: "",
+                outroLocal: ""
+            };
+            el.classList.add('selected');
+            renderizarCardDetalhamentoSintoma(id, nome, grupo);
+        }
+        atualizarContadores();
+    }
+
+    // Exclusividade de "Não apresentei nenhum sintoma"
+    function toggleNenhumSintoma(el) {
+        const isSel = el.classList.toggle('selected');
+        if (isSel) {
+            // Desmarca todos os sintomas marcados
+            document.querySelectorAll('.chip-sintoma.selected').forEach(c => c.classList.remove('selected'));
+            estadoSaudeFisica.sintomas = {};
+            estadoSaudeFisica.prioridades = [];
+            document.getElementById('containerDetalhamentoSintomas').innerHTML = '';
+            const chipOutra = document.getElementById('chip_sint_outra_queixa');
+            if (chipOutra) chipOutra.classList.remove('selected');
+            const boxOutra = document.getElementById('box_sint_outra_queixa');
+            if (boxOutra) boxOutra.classList.remove('open');
+        }
+        atualizarContadores();
+    }
+
+    function toggleOutraQueixa(el) {
+        const isSel = el.classList.toggle('selected');
+        const box = document.getElementById('box_sint_outra_queixa');
+        if (box) {
+            if (isSel) {
+                box.classList.add('open');
+                document.getElementById('input_sint_outra_queixa').focus();
+                const chipNenhum = document.getElementById('chip_sint_nenhum');
+                if (chipNenhum) chipNenhum.classList.remove('selected');
+            } else {
+                box.classList.remove('open');
+            }
+        }
+        atualizarContadores();
+    }
+
+    // Renderiza card dinâmico de detalhamento de um sintoma
+    function renderizarCardDetalhamentoSintoma(id, nome, grupo) {
+        const container = document.getElementById('containerDetalhamentoSintomas');
+        if (!container) return;
+
+        const isOutroLocal = (nome === "Dor em outras regiões");
+
+        const card = document.createElement('div');
+        card.className = 'symptom-detail-card';
+        card.id = 'card_detalhe_' + id;
+
+        card.innerHTML = `
+            <div class="symptom-detail-header">
+                <span style="color: var(--gold-matte); font-size: 16px;">✦</span>
+                <span>Detalhamento: <strong>${nome}</strong></span>
+                <button type="button" onclick="fecharDetalhamento('${id}')" style="margin-left:auto; background:none; border:none; cursor:pointer; font-size:12px; color:#6B7280;">✕ recolher</button>
+            </div>
+
+            ${isOutroLocal ? `
+            <div style="margin-bottom: 12px;">
+                <label style="font-size: 11.5px; font-weight: 600; color: #4B5563;">Especifique a região ou local da dor:</label>
+                <input type="text" oninput="atualizarCampoDet('${id}', 'outroLocal', this.value)" placeholder="Ex: Queimação no couro cabeludo, dor no cóccix..." style="font-size: 12.5px; padding: 7px 10px; border-radius: 6px;">
+            </div>
+            ` : ''}
+
+            <div class="symptom-detail-grid">
+                <div class="detail-field">
+                    <label>Há quanto tempo começou?</label>
+                    <select onchange="atualizarCampoDet('${id}', 'tempo', this.value)">
+                        <option value="Menos de 1 mês">Menos de 1 mês</option>
+                        <option value="1–3 meses" selected>1–3 meses</option>
+                        <option value="3–12 meses">3–12 meses</option>
+                        <option value="mais de 1 ano">mais de 1 ano</option>
+                        <option value="não lembro">não lembro</option>
+                    </select>
+                </div>
+
+                <div class="detail-field">
+                    <label>Frequência (últimos 30 dias):</label>
+                    <select onchange="atualizarCampoDet('${id}', 'freq', this.value)">
+                        <option value="ocasional">ocasional</option>
+                        <option value="semanal">semanal</option>
+                        <option value="vários dias por semana" selected>vários dias por semana</option>
+                        <option value="diária">diária</option>
+                    </select>
+                </div>
+
+                <div class="detail-field">
+                    <label>Intensidade habitual: <strong id="lbl_int_${id}">5</strong>/10</label>
+                    <input type="range" min="0" max="10" value="5" oninput="document.getElementById('lbl_int_${id}').innerText=this.value; atualizarCampoDet('${id}', 'intensidade', this.value);" style="width:100%; accent-color: var(--navy-deep);">
+                </div>
+
+                <div class="detail-field">
+                    <label>Quanto interfere na rotina?</label>
+                    <select onchange="atualizarCampoDet('${id}', 'interferencia', this.value)">
+                        <option value="nada">nada</option>
+                        <option value="pouco">pouco</option>
+                        <option value="moderadamente" selected>moderadamente</option>
+                        <option value="muito">muito</option>
+                    </select>
+                </div>
+
+                <div class="detail-field">
+                    <label>Já foi avaliado por profissional?</label>
+                    <select onchange="atualizarCampoDet('${id}', 'avaliado', this.value)">
+                        <option value="sim">sim</option>
+                        <option value="não" selected>não</option>
+                        <option value="em investigação">em investigação</option>
+                        <option value="não sei">não sei</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="symptom-detail-grid" style="margin-top: 8px;">
+                <div class="detail-field">
+                    <label>Há diagnóstico ou explicação conhecida? (opcional)</label>
+                    <input type="text" oninput="atualizarCampoDet('${id}', 'explicacao', this.value)" placeholder="Ex: Enxaqueca clássica, gastrite nervosa...">
+                </div>
+                <div class="detail-field">
+                    <label>Usa algo para aliviar? (medicamento, chá, repouso...)</label>
+                    <input type="text" oninput="atualizarCampoDet('${id}', 'alivio', this.value)" placeholder="Ex: Paracetamol, bolsa de água morna, dormir no escuro...">
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <label style="font-size: 11.5px; font-weight: 600; color: #4B5563;">Percebe alguma relação com:</label>
+                <div class="relations-pills" id="pills_rel_${id}">
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'sono', this)">Sono</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'alimentação', this)">Alimentação</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'esforço físico', this)">Esforço físico</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'ciclo menstrual', this)">Ciclo menstrual</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'estresse', this)">Estresse</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'início/alteração de medicamentos', this)">Início/alteração de medicamentos</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'não percebo relação', this)">Não percebo relação</span>
+                    <span class="relation-pill" onclick="toggleRelacaoPill('${id}', 'não sei', this)">Não sei</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <label style="font-size: 11.5px; font-weight: 600; color: #4B5563;">Observações adicionais (opcional):</label>
+                <input type="text" oninput="atualizarCampoDet('${id}', 'obs', this.value)" placeholder="Outro detalhe importante sobre este sintoma...">
+            </div>
+        `;
+
+        container.appendChild(card);
+    }
+
+    function fecharDetalhamento(id) {
+        const card = document.getElementById('card_detalhe_' + id);
+        if (card) {
+            card.style.display = 'none';
+        }
+    }
+
+    function atualizarCampoDet(id, campo, valor) {
+        if (estadoSaudeFisica.sintomas[id]) {
+            estadoSaudeFisica.sintomas[id][campo] = valor;
+            salvarNoLocalStorage();
+            atualizarResumoClinicoDraTania();
+        }
+    }
+
+    function toggleRelacaoPill(id, item, el) {
+        if (!estadoSaudeFisica.sintomas[id]) return;
+        const rels = estadoSaudeFisica.sintomas[id].relacoes;
+        const idx = rels.indexOf(item);
+        if (idx > -1) {
+            rels.splice(idx, 1);
+            el.classList.remove('selected');
+        } else {
+            // Se for 'não percebo relação' ou 'não sei', desmarca os outros
+            if (item === 'não percebo relação' || item === 'não sei') {
+                estadoSaudeFisica.sintomas[id].relacoes = [item];
+                const parent = document.getElementById('pills_rel_' + id);
+                if (parent) {
+                    parent.querySelectorAll('.relation-pill').forEach(p => p.classList.remove('selected'));
+                }
+            } else {
+                // remove 'não percebo relação' ou 'não sei' se estavam
+                estadoSaudeFisica.sintomas[id].relacoes = rels.filter(r => r !== 'não percebo relação' && r !== 'não sei');
+                const parent = document.getElementById('pills_rel_' + id);
+                if (parent) {
+                    parent.querySelectorAll('.relation-pill').forEach(p => {
+                        if (p.innerText.includes('Não percebo') || p.innerText.includes('Não sei')) {
+                            p.classList.remove('selected');
+                        }
+                    });
+                }
+            }
+            estadoSaudeFisica.sintomas[id].relacoes.push(item);
+            el.classList.add('selected');
+        }
+        salvarNoLocalStorage();
+        atualizarResumoClinicoDraTania();
+    }
+
+    // Bloco de Priorização (Até 3 itens)
+    function atualizarBlocoPrioridades() {
+        const bloco = document.getElementById('blocoPrioridades');
+        const container = document.getElementById('priorityChipsContainer');
+        if (!bloco || !container) return;
+
+        const sintomaIds = Object.keys(estadoSaudeFisica.sintomas);
+        if (sintomaIds.length === 0) {
+            bloco.style.display = 'none';
+            container.innerHTML = '';
+            return;
+        }
+
+        bloco.style.display = 'block';
+        container.innerHTML = '';
+
+        sintomaIds.forEach(sid => {
+            const s = estadoSaudeFisica.sintomas[sid];
+            const isPrioritario = estadoSaudeFisica.prioridades.includes(sid);
+            const priChip = document.createElement('div');
+            priChip.className = 'chip-option' + (isPrioritario ? ' selected' : '');
+            priChip.innerHTML = `
+                <div class="chip-checkbox"></div>
+                <span class="chip-text">${s.nome}</span>
+            `;
+            priChip.onclick = () => togglePrioridade(sid, priChip);
+            container.appendChild(priChip);
+        });
+    }
+
+    function togglePrioridade(id, el) {
+        const idx = estadoSaudeFisica.prioridades.indexOf(id);
+        if (idx > -1) {
+            estadoSaudeFisica.prioridades.splice(idx, 1);
+            el.classList.remove('selected');
+        } else {
+            if (estadoSaudeFisica.prioridades.length >= 3) {
+                alert("Você já selecionou 3 queixas prioritárias. Desmarque uma para escolher outra.");
+                return;
+            }
+            estadoSaudeFisica.prioridades.push(id);
+            el.classList.add('selected');
+        }
+        salvarNoLocalStorage();
+        atualizarResumoClinicoDraTania();
+    }
+
+    // ========================================================
+    // CONDIÇÕES CLÍNICAS CONHECIDAS (DIAGNÓSTICOS INFORMADOS)
+    // ========================================================
+
+    function toggleCondicao(el, id, nome, grupo) {
+        const chipNenhum = document.getElementById('chip_cond_nenhum');
+        if (chipNenhum && chipNenhum.classList.contains('selected')) {
+            chipNenhum.classList.remove('selected');
+        }
+
+        if (estadoSaudeFisica.condicoes[id]) {
+            delete estadoSaudeFisica.condicoes[id];
+            el.classList.remove('selected');
+            const card = document.getElementById('card_detalhe_cond_' + id);
+            if (card) card.remove();
+        } else {
+            estadoSaudeFisica.condicoes[id] = {
+                nome: nome,
+                grupo: grupo,
+                situacao: "ativa",
+                ano: "",
+                especialista: "",
+                tratamentos: "",
+                exames: "",
+                obs: ""
+            };
+            el.classList.add('selected');
+            renderizarCardDetalhamentoCondicao(id, nome, grupo);
+        }
+        atualizarContadores();
+    }
+
+    function toggleNenhumaCondicao(el) {
+        const isSel = el.classList.toggle('selected');
+        if (isSel) {
+            document.querySelectorAll('.chip-condicao.selected').forEach(c => c.classList.remove('selected'));
+            estadoSaudeFisica.condicoes = {};
+            document.getElementById('containerDetalhamentoCondicoes').innerHTML = '';
+            const chipInv = document.getElementById('chip_cond_investigacao');
+            if (chipInv) chipInv.classList.remove('selected');
+            const boxInv = document.getElementById('box_cond_investigacao');
+            if (boxInv) boxInv.classList.remove('open');
+        }
+        atualizarContadores();
+    }
+
+    function toggleCondicaoInvestigacao(el) {
+        const isSel = el.classList.toggle('selected');
+        const box = document.getElementById('box_cond_investigacao');
+        if (box) {
+            if (isSel) {
+                box.classList.add('open');
+                document.getElementById('input_cond_investigacao').focus();
+                const chipNenhum = document.getElementById('chip_cond_nenhum');
+                if (chipNenhum) chipNenhum.classList.remove('selected');
+            } else {
+                box.classList.remove('open');
+            }
+        }
+        atualizarContadores();
+    }
+
+    function renderizarCardDetalhamentoCondicao(id, nome, grupo) {
+        const container = document.getElementById('containerDetalhamentoCondicoes');
+        if (!container) return;
+
+        const card = document.createElement('div');
+        card.className = 'symptom-detail-card';
+        card.id = 'card_detalhe_cond_' + id;
+
+        card.innerHTML = `
+            <div class="symptom-detail-header">
+                <span style="color: var(--gold-matte); font-size: 16px;">✦</span>
+                <span>Detalhamento: <strong>${nome}</strong></span>
+                <button type="button" onclick="fecharDetalhamentoCond('${id}')" style="margin-left:auto; background:none; border:none; cursor:pointer; font-size:12px; color:#6B7280;">✕ recolher</button>
+            </div>
+
+            <div class="symptom-detail-grid">
+                <div class="detail-field">
+                    <label>Situação atual:</label>
+                    <select onchange="atualizarCampoCond('${id}', 'situacao', this.value)">
+                        <option value="ativa" selected>ativa</option>
+                        <option value="controlada com tratamento">controlada com tratamento</option>
+                        <option value="condição passada">condição passada</option>
+                        <option value="não sei">não sei</option>
+                    </select>
+                </div>
+
+                <div class="detail-field">
+                    <label>Ano aproximado do diagnóstico:</label>
+                    <input type="text" oninput="atualizarCampoCond('${id}', 'ano', this.value)" placeholder="Ex: 2021 ou Há 3 anos">
+                </div>
+
+                <div class="detail-field">
+                    <label>Profissional / Especialidade que acompanha:</label>
+                    <input type="text" oninput="atualizarCampoCond('${id}', 'especialista', this.value)" placeholder="Ex: Cardiologista, Endocrino, Clínico...">
+                </div>
+
+                <div class="detail-field">
+                    <label>Tratamentos atuais (medicamentos/suplementos):</label>
+                    <input type="text" oninput="atualizarCampoCond('${id}', 'tratamentos', this.value)" placeholder="Ex: Losartana 50mg, Dieta com pouco sal...">
+                </div>
+            </div>
+
+            <div class="symptom-detail-grid" style="margin-top: 8px;">
+                <div class="detail-field">
+                    <label>Exames relevantes e data:</label>
+                    <input type="text" oninput="atualizarCampoCond('${id}', 'exames', this.value)" placeholder="Ex: Ecocardiograma normal (julho/2024)...">
+                </div>
+                <div class="detail-field">
+                    <label>Observações:</label>
+                    <input type="text" oninput="atualizarCampoCond('${id}', 'obs', this.value)" placeholder="Notas adicionais sobre esta condição...">
+                </div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    }
+
+    function fecharDetalhamentoCond(id) {
+        const card = document.getElementById('card_detalhe_cond_' + id);
+        if (card) card.style.display = 'none';
+    }
+
+    function atualizarCampoCond(id, campo, valor) {
+        if (estadoSaudeFisica.condicoes[id]) {
+            estadoSaudeFisica.condicoes[id][campo] = valor;
+            salvarNoLocalStorage();
+            atualizarResumoClinicoDraTania();
+        }
+    }
+
+    // ========================================================
+    // RESUMO MÉDICO NA ABA 5 (DRA. TÂNIA)
+    // ========================================================
+    function atualizarResumoClinicoDraTania() {
+        const container = document.getElementById('resumoSaudeFisicaDraTania');
+        if (!container) return;
+
+        const totalSintomas = Object.keys(estadoSaudeFisica.sintomas).length;
+        const totalCondicoes = Object.keys(estadoSaudeFisica.condicoes).length;
+        const totalPrioridades = estadoSaudeFisica.prioridades.length;
+
+        let html = `
+            <div class="medical-summary-panel">
+                <h4>
+                    <span>📋 Resumo de Saúde Física e Condições Clínicas Informadas</span>
+                    <span class="summary-badge-count">${totalSintomas} queixas • ${totalCondicoes} condições</span>
+                </h4>
+                <div class="question-sub" style="margin-bottom: 14px;">
+                    Dados informados pelo paciente para correlação fisiológica integrada na consulta:
+                </div>
+        `;
+
+        // 1. Queixas Prioritárias
+        if (totalPrioridades > 0) {
+            html += `<div style="background: #FDF9F0; border-left: 3px solid var(--gold-matte); padding: 10px 14px; border-radius: 6px; margin-bottom: 12px; font-size: 13px;">
+                <strong>🎯 Prioridades do Paciente:</strong> `;
+            const nomesPri = estadoSaudeFisica.prioridades.map(pid => {
+                const s = estadoSaudeFisica.sintomas[pid];
+                return s ? `<strong>${s.nome}</strong> (Intensidade: ${s.intensidade}/10)` : '';
+            }).filter(Boolean);
+            html += nomesPri.join(" • ") + `</div>`;
+        }
+
+        // 2. Queixas por sistemas
+        if (totalSintomas > 0) {
+            html += `<div style="margin-bottom: 12px;"><strong>Sintomas Relatados por Aparelho/Sistema:</strong></div>`;
+            const mapaGrupos = {
+                'dor': '⚡ Dores e Tensão',
+                'digestao': '🌱 Digestão e Intestino',
+                'energia': '🌙 Energia, Sono e Neurológico',
+                'cardio': '❤️ Coração e Respiração',
+                'metab': '⚖️ Peso, Apetite e Regulação',
+                'pele': '✨ Pele, Cabelos e Alergias',
+                'urohorm': '🌸 Urinário, Hormonal e Sexual'
+            };
+
+            for (const [gid, gNome] of Object.entries(mapaGrupos)) {
+                const sints = Object.values(estadoSaudeFisica.sintomas).filter(s => s.grupo === gid);
+                if (sints.length > 0) {
+                    html += `
+                        <div class="summary-system-row">
+                            <span class="summary-system-name">${gNome}:</span>
+                            <span>${sints.map(s => `${s.nome} [${s.tempo}, freq: ${s.freq}, dor: ${s.intensidade}/10]`).join("; ")}</span>
+                        </div>
+                    `;
+                }
+            }
+        } else {
+            const chipNenhum = document.getElementById('chip_sint_nenhum');
+            if (chipNenhum && chipNenhum.classList.contains('selected')) {
+                html += `<div style="font-size: 13px; color: #166534; margin-bottom: 10px;">✓ Paciente declarou não apresentar queixas físicas nos últimos 30 dias.</div>`;
+            }
+        }
+
+        // 3. Condições Clínicas
+        if (totalCondicoes > 0) {
+            html += `<div style="margin-top: 14px; margin-bottom: 8px;"><strong>Condições Clínicas Diagnosticadas / Informadas:</strong></div>`;
+            const conds = Object.values(estadoSaudeFisica.condicoes);
+            html += `<div style="font-size: 13px; line-height: 1.6;">`;
+            html += conds.map(c => `• <strong>${c.nome}</strong> (${c.situacao}${c.ano ? ', desde ' + c.ano : ''}${c.tratamentos ? '; Tratamento: ' + c.tratamentos : ''})`).join("<br>");
+            html += `</div>`;
+        }
+
+        // 4. Investigação em aberto
+        const inpInv = document.getElementById('input_cond_investigacao');
+        if (inpInv && inpInv.value.trim()) {
+            html += `<div style="margin-top: 10px; font-size: 13px; color: #9A3412;">
+                🔍 <strong>Ponto em investigação:</strong> ${inpInv.value.trim()}
+            </div>`;
+        }
+
+        html += `</div>`;
+        container.innerHTML = html;
+    }
+
+    // ========================================================
+    // SALVAMENTO NO LOCALSTORAGE (RESPOSTAS PARCIAIS)
+    // ========================================================
+    function salvarNoLocalStorage() {
+        try {
+            const dataToSave = {
+                saudeFisica: estadoSaudeFisica,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('ficha_saude_fisica_dra_tania', JSON.stringify(dataToSave));
+        } catch (e) {
+            console.warn("LocalStorage indisponível:", e);
+        }
+    }
+
+    function carregarDoLocalStorage() {
+        try {
+            const saved = localStorage.getItem('ficha_saude_fisica_dra_tania');
+            if (!saved) return;
+            const parsed = JSON.parse(saved);
+            if (parsed.saudeFisica) {
+                // Restaura estado
+                if (parsed.saudeFisica.sintomas) {
+                    for (const [id, s] of Object.entries(parsed.saudeFisica.sintomas)) {
+                        const chip = document.getElementById('chip_sint_' + id);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            estadoSaudeFisica.sintomas[id] = s;
+                            renderizarCardDetalhamentoSintoma(id, s.nome, s.grupo);
+                        }
+                    }
+                }
+                if (parsed.saudeFisica.prioridades) {
+                    estadoSaudeFisica.prioridades = parsed.saudeFisica.prioridades;
+                }
+                if (parsed.saudeFisica.condicoes) {
+                    for (const [id, c] of Object.entries(parsed.saudeFisica.condicoes)) {
+                        const chip = document.getElementById('chip_cond_' + id);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            estadoSaudeFisica.condicoes[id] = c;
+                            renderizarCardDetalhamentoCondicao(id, c.nome, c.grupo);
+                        }
+                    }
+                }
+                atualizarContadores();
+            }
+        } catch (e) {
+            console.warn("Erro ao ler LocalStorage:", e);
+        }
+    }
+
 
     // 1. Coleta todas as respostas preenchidas (Abas 1 a 4)
     function coletarDadosPreenchidos() {
@@ -1769,6 +3330,7 @@
             payload.radios[r.name] = r.value;
         });
 
+        payload.saudeFisica = estadoSaudeFisica;
         return payload;
     }
 
@@ -1870,6 +3432,35 @@
                 });
             }
 
+            
+            // Restaura Saúde Física e Condições Clínicas
+            if (payload.saudeFisica) {
+                if (payload.saudeFisica.sintomas) {
+                    for (const [id, s] of Object.entries(payload.saudeFisica.sintomas)) {
+                        const chip = document.getElementById('chip_sint_' + id);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            estadoSaudeFisica.sintomas[id] = s;
+                            renderizarCardDetalhamentoSintoma(id, s.nome, s.grupo);
+                        }
+                    }
+                }
+                if (payload.saudeFisica.prioridades) {
+                    estadoSaudeFisica.prioridades = payload.saudeFisica.prioridades;
+                }
+                if (payload.saudeFisica.condicoes) {
+                    for (const [id, c] of Object.entries(payload.saudeFisica.condicoes)) {
+                        const chip = document.getElementById('chip_cond_' + id);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            estadoSaudeFisica.condicoes[id] = c;
+                            renderizarCardDetalhamentoCondicao(id, c.nome, c.grupo);
+                        }
+                    }
+                }
+                atualizarContadores();
+            }
+
             // Exibe o alerta elegante de prontuário carregado
             const alertEl = document.getElementById('drAlertLoaded');
             if (alertEl) alertEl.style.display = 'flex';
@@ -1882,6 +3473,7 @@
     // Inicialização ao carregar a página
     window.addEventListener('DOMContentLoaded', () => {
         carregarDadosDaUrl();
+        carregarDoLocalStorage();
     });
 
     // Ouvintes nativos do navegador caso o usuário aperte Ctrl+P diretamente
