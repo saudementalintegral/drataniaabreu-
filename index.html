@@ -3401,25 +3401,49 @@
         return baseUrl + '?prontuario=' + encodeURIComponent(b64);
     }
 
-    // 3. Compartilha via WhatsApp diretamente para a Dra. Tânia (com encurtador automático)
+    // 3. Compartilha via WhatsApp diretamente para a Dra. Tânia (com encurtador automático ultracurto)
+    async function encurtarUrl(urlLonga) {
+        // Tenta da.gd (suporta CORS nativo e gera URLs de ~18 caracteres)
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            const res = await fetch('https://da.gd/s?url=' + encodeURIComponent(urlLonga), { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (res.ok) {
+                const txt = (await res.text()).trim();
+                if (txt && txt.startsWith('http') && !txt.includes('Error')) {
+                    return txt;
+                }
+            }
+        } catch (e) {
+            console.log("da.gd indisponível, tentando fallback...");
+        }
+
+        // Fallback 1: clck.ru (suporta CORS nativo e alta disponibilidade)
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            const res = await fetch('https://clck.ru/--?url=' + encodeURIComponent(urlLonga), { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (res.ok) {
+                const txt = (await res.text()).trim();
+                if (txt && txt.startsWith('http')) {
+                    return txt;
+                }
+            }
+        } catch (e) {
+            console.log("clck.ru indisponível, usando link comprimido direto.");
+        }
+
+        return urlLonga;
+    }
+
     async function compartilharViaWhatsApp() {
         const nomeInput = document.getElementById('campo_nome_completo');
         const nome = nomeInput && nomeInput.value.trim() ? nomeInput.value.trim() : "Paciente";
         
-        let linkProntuario = gerarLinkProntuario();
-
-        // Tenta encurtar automaticamente via TinyURL para ficar super curto no WhatsApp
-        try {
-            const res = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(linkProntuario)}`);
-            if (res.ok) {
-                const shortUrl = await res.text();
-                if (shortUrl && shortUrl.startsWith("http")) {
-                    linkProntuario = shortUrl.trim();
-                }
-            }
-        } catch (e) {
-            console.log("Encurtador externo indisponível, usando link comprimido direto.");
-        }
+        const linkProntuarioLongo = gerarLinkProntuario();
+        const linkProntuario = await encurtarUrl(linkProntuarioLongo);
 
         const texto = `Olá Dra. Tânia! Aqui é ${nome}. Finalizei o preenchimento da minha Ficha de Avaliação Integrativa.\n\nPara visualizar meu prontuário preenchido na sua plataforma e dar seguimento à consulta, acesse o link:\n${linkProntuario}`;
 
