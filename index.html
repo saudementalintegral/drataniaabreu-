@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca de alta compressão de URL (LZ-String) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
     <style>
         :root {
             --bg-principal: #F7F5F1;         /* Off-white refinado */
@@ -3334,59 +3336,141 @@
         return payload;
     }
 
-    // 2. Transforma dados em link encurtado em Base64 seguro
+    // 2. Transforma dados em link ultracompacto (otimizado sem repetições)
     function gerarLinkProntuario() {
         const dados = coletarDadosPreenchidos();
-        const jsonStr = JSON.stringify(dados);
-        const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
+        
+        // Versão otimizada e limpa (remove dados vazios e chaves redundantes)
+        const minificado = {
+            i: dados.inputs || {},
+            c: dados.chips || [],
+            r: dados.radios || {},
+            p: dados.pain || null,
+            m: dados.meds || [],
+            s: {}
+        };
+
+        if (dados.saudeFisica) {
+            // Guarda apenas o essencial de cada sintoma (sem repetir textos longos)
+            if (dados.saudeFisica.sintomas) {
+                minificado.s.st = {};
+                for (const [sid, s] of Object.entries(dados.saudeFisica.sintomas)) {
+                    minificado.s.st[sid] = [
+                        s.tempo || "",
+                        s.freq || "",
+                        s.intensidade || 5,
+                        s.interferencia || "",
+                        s.avaliado || "",
+                        s.explicacao || "",
+                        s.alivio || "",
+                        s.relacoes || [],
+                        s.obs || "",
+                        s.outroLocal || ""
+                    ];
+                }
+            }
+            if (dados.saudeFisica.prioridades) {
+                minificado.s.pr = dados.saudeFisica.prioridades;
+            }
+            if (dados.saudeFisica.condicoes) {
+                minificado.s.cd = {};
+                for (const [cid, cd] of Object.entries(dados.saudeFisica.condicoes)) {
+                    minificado.s.cd[cid] = [
+                        cd.situacao || "",
+                        cd.ano || "",
+                        cd.especialista || "",
+                        cd.tratamentos || "",
+                        cd.exames || "",
+                        cd.obs || ""
+                    ];
+                }
+            }
+        }
+
+        const jsonStr = JSON.stringify(minificado);
         const baseUrl = window.location.origin + window.location.pathname;
+
+        // Tenta usar LZ-String para máxima compressão
+        if (typeof LZString !== 'undefined' && LZString.compressToEncodedURIComponent) {
+            const comp = LZString.compressToEncodedURIComponent(jsonStr);
+            return baseUrl + '?lz=' + comp;
+        }
+
+        // Fallback Base64 padrão
+        const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
         return baseUrl + '?prontuario=' + encodeURIComponent(b64);
     }
 
-    // 3. Compartilha via WhatsApp diretamente para a Dra. Tânia
-    function compartilharViaWhatsApp() {
+    // 3. Compartilha via WhatsApp diretamente para a Dra. Tânia (com encurtador automático)
+    async function compartilharViaWhatsApp() {
         const nomeInput = document.getElementById('campo_nome_completo');
         const nome = nomeInput && nomeInput.value.trim() ? nomeInput.value.trim() : "Paciente";
-        const linkProntuario = gerarLinkProntuario();
+        
+        let linkProntuario = gerarLinkProntuario();
+
+        // Tenta encurtar automaticamente via TinyURL para ficar super curto no WhatsApp
+        try {
+            const res = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(linkProntuario)}`);
+            if (res.ok) {
+                const shortUrl = await res.text();
+                if (shortUrl && shortUrl.startsWith("http")) {
+                    linkProntuario = shortUrl.trim();
+                }
+            }
+        } catch (e) {
+            console.log("Encurtador externo indisponível, usando link comprimido direto.");
+        }
 
         const texto = `Olá Dra. Tânia! Aqui é ${nome}. Finalizei o preenchimento da minha Ficha de Avaliação Integrativa.\n\nPara visualizar meu prontuário preenchido na sua plataforma e dar seguimento à consulta, acesse o link:\n${linkProntuario}`;
 
-        // Número oficial da Dra. Tânia com DDI Brasil (+55)
         const telefoneDraTania = "5511948977852";
         const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefoneDraTania}&text=${encodeURIComponent(texto)}`;
         window.open(urlWhatsApp, '_blank');
     }
 
-    // 4. Se a Dra. Tânia abrir o link com "?prontuario=...", descompacta e preenche tudo na tela
+    // 4. Se a Dra. Tânia abrir o link com "?lz=..." ou "?prontuario=...", descompacta e preenche tudo na tela
     function carregarDadosDaUrl() {
         const urlParams = new URLSearchParams(window.location.search);
+        const lzData = urlParams.get('lz');
         const b64 = urlParams.get('prontuario');
-        if (!b64) return;
+
+        if (!lzData && !b64) return;
 
         try {
-            const jsonStr = decodeURIComponent(escape(atob(b64)));
-            const payload = JSON.parse(jsonStr);
+            let jsonStr = "";
+            if (lzData && typeof LZString !== 'undefined' && LZString.decompressFromEncodedURIComponent) {
+                jsonStr = LZString.decompressFromEncodedURIComponent(lzData);
+            } else if (b64) {
+                jsonStr = decodeURIComponent(escape(atob(b64)));
+            }
+
+            if (!jsonStr) return;
+            const data = JSON.parse(jsonStr);
+
+            // Adapta tanto formato minificado novo quanto payload anterior
+            const inputs = data.i || data.inputs || {};
+            const chips = data.c || data.chips || [];
+            const radios = data.r || data.radios || {};
+            const pain = data.p || data.pain || null;
+            const meds = data.m || data.meds || [];
+            const saudeFisica = data.s || data.saudeFisica || null;
 
             // Restaura Inputs e Textareas
-            if (payload.inputs) {
-                for (const [id, val] of Object.entries(payload.inputs)) {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.value = val;
-                        // Se for caixa expansível de "outro", abre o container
-                        const parentBox = el.closest('.outro-expandable-box');
-                        if (parentBox) parentBox.classList.add('open');
-                    }
+            for (const [id, val] of Object.entries(inputs)) {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.value = val;
+                    const parentBox = el.closest('.outro-expandable-box');
+                    if (parentBox) parentBox.classList.add('open');
                 }
             }
 
             // Restaura Chips selecionados
-            if (payload.chips && Array.isArray(payload.chips)) {
+            if (Array.isArray(chips)) {
                 document.querySelectorAll('.chip-option').forEach(chip => {
                     const txt = chip.querySelector('.chip-text');
-                    if (txt && payload.chips.includes(txt.innerText.trim())) {
+                    if (txt && chips.includes(txt.innerText.trim())) {
                         chip.classList.add('selected');
-                        // Abre caixa de outro se associada
                         const onclickStr = chip.getAttribute('onclick') || '';
                         const match = onclickStr.match(/'(box_[^']+)'/);
                         if (match && match[1]) {
@@ -3398,28 +3482,26 @@
             }
 
             // Restaura Escala de Dor
-            if (payload.pain) {
+            if (pain) {
                 document.querySelectorAll('.pain-face-card').forEach(c => {
                     const sc = c.querySelector('.p-score');
-                    if (sc && sc.innerText.trim() === payload.pain) {
+                    if (sc && sc.innerText.trim() === pain) {
                         c.classList.add('selected');
                     }
                 });
             }
 
             // Restaura Radios Relacionais
-            if (payload.radios) {
-                for (const [name, val] of Object.entries(payload.radios)) {
-                    const radio = document.querySelector(`input[name="${name}"][value="${val}"]`);
-                    if (radio) radio.checked = true;
-                }
+            for (const [name, val] of Object.entries(radios)) {
+                const radio = document.querySelector(`input[name="${name}"][value="${val}"]`);
+                if (radio) radio.checked = true;
             }
 
             // Restaura Tabela de Medicamentos
-            if (payload.meds && Array.isArray(payload.meds) && payload.meds.length > 0) {
+            if (Array.isArray(meds) && meds.length > 0) {
                 const tbody = document.getElementById('medsTableBody');
                 tbody.innerHTML = '';
-                payload.meds.forEach(row => {
+                meds.forEach(row => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td><input type="text" value="${row[0] || ''}"></td>
@@ -3432,11 +3514,36 @@
                 });
             }
 
-            
             // Restaura Saúde Física e Condições Clínicas
-            if (payload.saudeFisica) {
-                if (payload.saudeFisica.sintomas) {
-                    for (const [id, s] of Object.entries(payload.saudeFisica.sintomas)) {
+            if (saudeFisica) {
+                // Formato minificado novo
+                if (saudeFisica.st) {
+                    for (const [sid, arr] of Object.entries(saudeFisica.st)) {
+                        const chip = document.getElementById('chip_sint_' + sid);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            const nome = chip.getAttribute('data-sintoma') || sid;
+                            const grupo = chip.getAttribute('data-grupo') || 'dor';
+                            estadoSaudeFisica.sintomas[sid] = {
+                                nome: nome,
+                                grupo: grupo,
+                                tempo: arr[0] || "1–3 meses",
+                                freq: arr[1] || "vários dias por semana",
+                                intensidade: arr[2] || 5,
+                                interferencia: arr[3] || "moderadamente",
+                                avaliado: arr[4] || "não",
+                                explicacao: arr[5] || "",
+                                alivio: arr[6] || "",
+                                relacoes: arr[7] || [],
+                                obs: arr[8] || "",
+                                outroLocal: arr[9] || ""
+                            };
+                            renderizarCardDetalhamentoSintoma(sid, nome, grupo);
+                        }
+                    }
+                } else if (saudeFisica.sintomas) {
+                    // Formato anterior
+                    for (const [id, s] of Object.entries(saudeFisica.sintomas)) {
                         const chip = document.getElementById('chip_sint_' + id);
                         if (chip) {
                             chip.classList.add('selected');
@@ -3445,11 +3552,35 @@
                         }
                     }
                 }
-                if (payload.saudeFisica.prioridades) {
-                    estadoSaudeFisica.prioridades = payload.saudeFisica.prioridades;
+
+                if (saudeFisica.pr) {
+                    estadoSaudeFisica.prioridades = saudeFisica.pr;
+                } else if (saudeFisica.prioridades) {
+                    estadoSaudeFisica.prioridades = saudeFisica.prioridades;
                 }
-                if (payload.saudeFisica.condicoes) {
-                    for (const [id, c] of Object.entries(payload.saudeFisica.condicoes)) {
+
+                if (saudeFisica.cd) {
+                    for (const [cid, arr] of Object.entries(saudeFisica.cd)) {
+                        const chip = document.getElementById('chip_cond_' + cid);
+                        if (chip) {
+                            chip.classList.add('selected');
+                            const nome = chip.getAttribute('data-condicao') || cid;
+                            const grupo = chip.getAttribute('data-grupo') || 'cond_cardio';
+                            estadoSaudeFisica.condicoes[cid] = {
+                                nome: nome,
+                                grupo: grupo,
+                                situacao: arr[0] || "ativa",
+                                ano: arr[1] || "",
+                                especialista: arr[2] || "",
+                                tratamentos: arr[3] || "",
+                                exames: arr[4] || "",
+                                obs: arr[5] || ""
+                            };
+                            renderizarCardDetalhamentoCondicao(cid, nome, grupo);
+                        }
+                    }
+                } else if (saudeFisica.condicoes) {
+                    for (const [id, c] of Object.entries(saudeFisica.condicoes)) {
                         const chip = document.getElementById('chip_cond_' + id);
                         if (chip) {
                             chip.classList.add('selected');
@@ -3461,10 +3592,11 @@
                 atualizarContadores();
             }
 
-            // Exibe o alerta elegante de prontuário carregado
+            // Exibe o alerta de prontuário carregado
             const alertEl = document.getElementById('drAlertLoaded');
             if (alertEl) alertEl.style.display = 'flex';
 
+            return;
         } catch (e) {
             console.error("Não foi possível carregar o prontuário da URL:", e);
         }
